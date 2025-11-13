@@ -52,7 +52,22 @@ artifacts/
 
 # Docker
 .env
+.env.local
 docker-compose.override.yml.local
+
+# .NET Core / ASP.NET
+*.user
+*.userosscache
+*.sln.docstates
+appsettings.Local.json
+appsettings.*.Local.json
+!appsettings.json
+!appsettings.Development.json
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
 
 # OS
 .DS_Store
