@@ -54,7 +54,7 @@ class AuthRepository @Inject constructor(
             if (token == null) {
                 return Result.failure(Exception("No token available"))
             }
-            val response = apiService.getCurrentUser("Bearer $token")
+            val response = apiService.getCurrentUser()
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {

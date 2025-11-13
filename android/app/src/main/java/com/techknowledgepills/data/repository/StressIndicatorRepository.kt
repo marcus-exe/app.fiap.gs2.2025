@@ -14,7 +14,7 @@ class StressIndicatorRepository @Inject constructor(
     suspend fun getStressIndicators(): Result<List<StressIndicator>> {
         return try {
             val token = tokenManager.getToken() ?: return Result.failure(Exception("No token"))
-            val response = apiService.getStressIndicators("Bearer $token")
+            val response = apiService.getStressIndicators()
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {
@@ -28,7 +28,7 @@ class StressIndicatorRepository @Inject constructor(
     suspend fun getLatestStressIndicator(): Result<StressIndicator> {
         return try {
             val token = tokenManager.getToken() ?: return Result.failure(Exception("No token"))
-            val response = apiService.getLatestStressIndicator("Bearer $token")
+            val response = apiService.getLatestStressIndicator()
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {
@@ -42,7 +42,7 @@ class StressIndicatorRepository @Inject constructor(
     suspend fun generateMockData(count: Int = 30): Result<List<StressIndicator>> {
         return try {
             val token = tokenManager.getToken() ?: return Result.failure(Exception("No token"))
-            val response = apiService.generateMockData("Bearer $token", count)
+            val response = apiService.generateMockData(count)
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {

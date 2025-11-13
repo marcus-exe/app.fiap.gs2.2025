@@ -28,9 +28,16 @@ class ContentViewModel @Inject constructor(
     fun loadAllContent() {
         viewModelScope.launch {
             _isLoading.value = true
-            contentRepository.getAllContent().onSuccess {
-                _contents.value = it
-            }
+            contentRepository.getAllContent()
+                .onSuccess {
+                    _contents.value = it
+                }
+                .onFailure { exception ->
+                    // Log error for debugging
+                    android.util.Log.e("ContentViewModel", "Failed to load content", exception)
+                    // Keep empty list on error
+                    _contents.value = emptyList()
+                }
             _isLoading.value = false
         }
     }

@@ -6,6 +6,8 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.techknowledgepills.data.api.ApiService;
 import com.techknowledgepills.data.api.RetrofitModule;
@@ -45,10 +47,7 @@ import dagger.hilt.android.internal.modules.ApplicationContextModule;
 import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideContextFactory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
-import dagger.internal.MapBuilder;
 import dagger.internal.Preconditions;
-import dagger.internal.SetBuilder;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.processing.Generated;
@@ -396,7 +395,7 @@ public final class DaggerTechKnowledgePillsApplication_HiltComponents_SingletonC
 
     @Override
     public Set<String> getViewModelKeys() {
-      return SetBuilder.<String>newSetBuilder(5).add(AuthViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(ContentViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(HomeViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(RecommendationViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(StressIndicatorViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
+      return ImmutableSet.<String>of(AuthViewModel_HiltModules_KeyModule_ProvideFactory.provide(), ContentViewModel_HiltModules_KeyModule_ProvideFactory.provide(), HomeViewModel_HiltModules_KeyModule_ProvideFactory.provide(), RecommendationViewModel_HiltModules_KeyModule_ProvideFactory.provide(), StressIndicatorViewModel_HiltModules_KeyModule_ProvideFactory.provide());
     }
 
     @Override
@@ -454,7 +453,7 @@ public final class DaggerTechKnowledgePillsApplication_HiltComponents_SingletonC
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(5).put("com.techknowledgepills.presentation.auth.AuthViewModel", ((Provider) authViewModelProvider)).put("com.techknowledgepills.presentation.content.ContentViewModel", ((Provider) contentViewModelProvider)).put("com.techknowledgepills.presentation.home.HomeViewModel", ((Provider) homeViewModelProvider)).put("com.techknowledgepills.presentation.recommendation.RecommendationViewModel", ((Provider) recommendationViewModelProvider)).put("com.techknowledgepills.presentation.stress.StressIndicatorViewModel", ((Provider) stressIndicatorViewModelProvider)).build();
+      return ImmutableMap.<String, Provider<ViewModel>>of("com.techknowledgepills.presentation.auth.AuthViewModel", ((Provider) authViewModelProvider), "com.techknowledgepills.presentation.content.ContentViewModel", ((Provider) contentViewModelProvider), "com.techknowledgepills.presentation.home.HomeViewModel", ((Provider) homeViewModelProvider), "com.techknowledgepills.presentation.recommendation.RecommendationViewModel", ((Provider) recommendationViewModelProvider), "com.techknowledgepills.presentation.stress.StressIndicatorViewModel", ((Provider) stressIndicatorViewModelProvider));
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -616,7 +615,7 @@ public final class DaggerTechKnowledgePillsApplication_HiltComponents_SingletonC
 
     @Override
     public Set<Boolean> getDisableFragmentGetContextFix() {
-      return Collections.<Boolean>emptySet();
+      return ImmutableSet.<Boolean>of();
     }
 
     @Override

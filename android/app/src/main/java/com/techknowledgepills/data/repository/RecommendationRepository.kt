@@ -14,7 +14,7 @@ class RecommendationRepository @Inject constructor(
     suspend fun getRecommendations(): Result<List<Content>> {
         return try {
             val token = tokenManager.getToken() ?: return Result.failure(Exception("No token"))
-            val response = apiService.getRecommendations("Bearer $token")
+            val response = apiService.getRecommendations()
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {

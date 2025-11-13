@@ -13,12 +13,12 @@ class ContentRepository @Inject constructor(
 ) {
     suspend fun getAllContent(): Result<List<Content>> {
         return try {
-            val token = tokenManager.getToken() ?: return Result.failure(Exception("No token"))
-            val response = apiService.getAllContent("Bearer $token")
+            val token = tokenManager.getToken() ?: return Result.failure(Exception("No token. Please log in."))
+            val response = apiService.getAllContent()
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {
-                Result.failure(Exception("Failed to fetch content: ${response.message()}"))
+                Result.failure(Exception("Failed to fetch content: ${response.code()} ${response.message()}"))
             }
         } catch (e: Exception) {
             Result.failure(e)
@@ -27,12 +27,12 @@ class ContentRepository @Inject constructor(
 
     suspend fun getContentById(id: Int): Result<Content> {
         return try {
-            val token = tokenManager.getToken() ?: return Result.failure(Exception("No token"))
-            val response = apiService.getContentById("Bearer $token", id)
+            val token = tokenManager.getToken() ?: return Result.failure(Exception("No token. Please log in."))
+            val response = apiService.getContentById(id)
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {
-                Result.failure(Exception("Failed to fetch content: ${response.message()}"))
+                Result.failure(Exception("Failed to fetch content: ${response.code()} ${response.message()}"))
             }
         } catch (e: Exception) {
             Result.failure(e)
@@ -41,12 +41,12 @@ class ContentRepository @Inject constructor(
 
     suspend fun getContentByType(type: Int): Result<List<Content>> {
         return try {
-            val token = tokenManager.getToken() ?: return Result.failure(Exception("No token"))
-            val response = apiService.getContentByType("Bearer $token", type)
+            val token = tokenManager.getToken() ?: return Result.failure(Exception("No token. Please log in."))
+            val response = apiService.getContentByType(type)
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {
-                Result.failure(Exception("Failed to fetch content: ${response.message()}"))
+                Result.failure(Exception("Failed to fetch content: ${response.code()} ${response.message()}"))
             }
         } catch (e: Exception) {
             Result.failure(e)

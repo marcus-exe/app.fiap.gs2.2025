@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.techknowledgepills.app-mergeDebugResources-62:/values-or/values-or.xml",
+            "outputFile": "com.techknowledgepills.app-mergeDebugResources-66:/values-or/values-or.xml",
             "map": [
                 {
                     "source": "/Users/marcuseduardosena/.gradle/caches/8.13/transforms/9eb8b0ea15f422a43bc5e77dc062cac0/transformed/jetified-material3-1.1.2/res/values-or/values-or.xml",

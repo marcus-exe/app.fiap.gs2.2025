@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.techknowledgepills.app-mergeDebugResources-62:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.techknowledgepills.app-mergeDebugResources-66:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "/Users/marcuseduardosena/.gradle/caches/8.13/transforms/e68368d1cb6ee81fb1321830b743bbe2/transformed/jetified-ui-release/res/values-en-rCA/values-en-rCA.xml",

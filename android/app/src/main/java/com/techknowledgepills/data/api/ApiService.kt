@@ -16,46 +16,42 @@ interface ApiService {
     suspend fun login(@Body request: LoginRequest): Response<AuthResponse>
 
     @GET("api/auth/me")
-    suspend fun getCurrentUser(@Header("Authorization") token: String): Response<User>
+    suspend fun getCurrentUser(): Response<User>
 
     // Content
     @GET("api/content")
-    suspend fun getAllContent(@Header("Authorization") token: String): Response<List<Content>>
+    suspend fun getAllContent(): Response<List<Content>>
 
     @GET("api/content/{id}")
     suspend fun getContentById(
-        @Header("Authorization") token: String,
         @Path("id") id: Int
     ): Response<Content>
 
     @GET("api/content/type/{type}")
     suspend fun getContentByType(
-        @Header("Authorization") token: String,
         @Path("type") type: Int // 1=Article, 2=Video, 3=Quiz
     ): Response<List<Content>>
 
     // Stress Indicators
     @GET("api/stressindicator")
-    suspend fun getStressIndicators(@Header("Authorization") token: String): Response<List<StressIndicator>>
+    suspend fun getStressIndicators(): Response<List<StressIndicator>>
 
     @GET("api/stressindicator/latest")
-    suspend fun getLatestStressIndicator(@Header("Authorization") token: String): Response<StressIndicator>
+    suspend fun getLatestStressIndicator(): Response<StressIndicator>
 
     @POST("api/stressindicator/generate-mock")
     suspend fun generateMockData(
-        @Header("Authorization") token: String,
         @Query("count") count: Int = 30
     ): Response<List<StressIndicator>>
 
     @POST("api/stressindicator")
     suspend fun createStressIndicator(
-        @Header("Authorization") token: String,
         @Body indicator: StressIndicator
     ): Response<StressIndicator>
 
     // Recommendations
     @GET("api/recommendation")
-    suspend fun getRecommendations(@Header("Authorization") token: String): Response<List<Content>>
+    suspend fun getRecommendations(): Response<List<Content>>
 }
 
 data class RegisterRequest(val email: String, val password: String)

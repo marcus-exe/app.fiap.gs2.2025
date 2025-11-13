@@ -1,4 +1,4 @@
-#Wed Nov 12 19:58:48 AMT 2025
+#Wed Nov 12 22:53:59 AMT 2025
 base.0=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.10=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex
@@ -6,6 +6,7 @@ base.11=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/
 base.12=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/7/classes.dex
 base.13=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
 base.14=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+base.15=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
 base.2=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
 base.3=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/10/classes.dex
 base.4=/Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
@@ -21,6 +22,7 @@ path.11=6/classes.dex
 path.12=7/classes.dex
 path.13=9/classes.dex
 path.14=classes2.dex
+path.15=classes3.dex
 path.2=1/classes.dex
 path.3=10/classes.dex
 path.4=11/classes.dex
@@ -36,6 +38,7 @@ renamed.11=classes12.dex
 renamed.12=classes13.dex
 renamed.13=classes14.dex
 renamed.14=classes15.dex
+renamed.15=classes16.dex
 renamed.2=classes3.dex
 renamed.3=classes4.dex
 renamed.4=classes5.dex

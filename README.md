@@ -29,13 +29,16 @@ app.fiap.gs2.2025/
 - **PostgreSQL Database**: Entity Framework Core with PostgreSQL
 
 ### Android App (Kotlin + Jetpack Compose)
-- **Authentication**: Login and registration screens
-- **Home Dashboard**: Overview with stress indicators and recommendations
+- **Authentication**: Beautiful login and registration screens with gradient backgrounds
+- **Home Dashboard**: Enhanced overview with stress indicators and recommendations
 - **Stress Monitoring**: Visual display of stress levels with mock data generation
-- **Content Browsing**: Browse and view all knowledge pills
-- **Content Viewing**: Support for articles, videos, and quizzes
+- **Content Browsing**: Browse and view all knowledge pills with enhanced card design
+- **Content Viewing**: 
+  - Articles with rich text display
+  - **Inline video player** supporting YouTube URLs and direct video URLs
+  - **Interactive quiz component** with questions, options, and result display
 - **Recommendations**: Personalized content based on current stress level
-- **Material Design 3**: Modern, accessible UI
+- **Material Design 3**: Modern, accessible UI with gradient headers, icons, and enhanced styling
 
 ## Technology Stack
 
@@ -52,9 +55,12 @@ app.fiap.gs2.2025/
 - Jetpack Compose
 - Hilt (Dependency Injection)
 - Retrofit (API calls)
-- Room (Local caching - configured but not fully implemented)
+- DataStore (Token management)
+- ExoPlayer (Video playback)
+- WebView (YouTube integration)
 - Material Design 3
 - Coroutines
+- KSP (Kotlin Symbol Processing)
 
 ## Setup Instructions
 
@@ -200,11 +206,15 @@ If you prefer to run without Docker:
 4. **Browse Content**
    - Use "Browse All Content" to see all available knowledge pills
    - Tap any content item to view details
+   - **Articles**: Read full content with rich formatting
+   - **Videos**: Watch inline with YouTube or direct video player support
+   - **Quizzes**: Take interactive quizzes with multiple-choice questions and see your results
 
 ## Development Notes
 
 - The app uses mock stress data for demonstration purposes
 - Content types include Articles, Videos, and Quizzes
+- **AI-generated knowledge pills** are automatically seeded into the database on first startup
 - The recommendation algorithm suggests content based on stress levels:
   - High stress: Prefers articles and videos (calming content)
   - Low stress: More challenging content
@@ -213,6 +223,9 @@ If you prefer to run without Docker:
 - Backend is containerized with Docker Compose for easy setup and deployment
 - Database migrations are automatically applied on startup
 - Environment variables can be configured via `.env` file or `docker-compose.yml`
+- **Interactive quiz component** parses JSON quiz data and renders questions with selectable options
+- **Inline video player** supports both YouTube URLs (via WebView) and direct video URLs (via ExoPlayer)
+- Enhanced UI with gradient headers, Material Design 3 components, and improved visual hierarchy
 
 ## Docker Commands Reference
 
@@ -271,12 +284,12 @@ docker-compose exec db psql -U postgres -d techknowledgepills  # Access database
 ## Future Enhancements
 
 - Real sensor integration for stress monitoring
-- Video player integration for video content
-- Interactive quiz implementation
 - Offline content caching with Room
 - Push notifications for new content
 - User progress tracking
 - Content rating and feedback
+- Social features (sharing, comments)
+- Advanced analytics and insights
 - Kubernetes deployment configuration
 - CI/CD pipeline setup
 

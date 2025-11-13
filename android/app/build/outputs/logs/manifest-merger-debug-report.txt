@@ -4,6 +4,16 @@ ADDED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.20
 INJECTED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml:2:1-31:12
 INJECTED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml:2:1-31:12
 INJECTED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml:2:1-31:12
+MERGED from [androidx.media3:media3-ui:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/9687e81c3d53b6ee0e03acfc8e90479e/transformed/jetified-media3-ui-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-extractor:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/ecc2267407295d5241ed058f51a0cc79/transformed/jetified-media3-extractor-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-container:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/e336a6f6f03e5d714a852782754ff789/transformed/jetified-media3-container-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-datasource:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/762baa3bd6d8ecd19f956818a8adde71/transformed/jetified-media3-datasource-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-decoder:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/7507536fc4e395448980648604b382e7/transformed/jetified-media3-decoder-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-database:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/44a9ab631c1fea2788b26d28e3758345/transformed/jetified-media3-database-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-common:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/a7732dc4cef94727d1ebfbdc412f0fbd/transformed/jetified-media3-common-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media3:media3-exoplayer:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/72338a46417b987fd3e9b2b68543f875/transformed/jetified-media3-exoplayer-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.6.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/644852430baae208014fb9dfa2e83371/transformed/media-1.6.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.3.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/dabdd6882fe09a5024ae26390a887dbb/transformed/recyclerview-1.3.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.hilt:hilt-navigation-compose:1.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/b05b51230b5dd1b637fe5b7ad1cb5bed/transformed/jetified-hilt-navigation-compose-1.1.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.hilt:hilt-navigation:1.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/436482889c9e5d3b7084385303a636f7/transformed/jetified-hilt-navigation-1.1.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.5] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/792d53e0e33eb792c9a37cca91f25659/transformed/navigation-common-2.7.5/AndroidManifest.xml:17:1-22:12
@@ -55,8 +65,8 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2] /Users/marcus
 MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/9614a3b87834aeada9501bd6c5dcceb7/transformed/jetified-accompanist-drawablepainter-0.32.0/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.compose.ui:ui-android:1.5.4] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/e68368d1cb6ee81fb1321830b743bbe2/transformed/jetified-ui-release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d1f43673d68e6dbdf53591b1172d984c/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.autofill:autofill:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d225fc8ab7256add9c8d28abe77b7711/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.customview:customview:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/5fbefa5f0c93297bc4cd1741ce3518f0/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d225fc8ab7256add9c8d28abe77b7711/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/45f94f702943cd2b5d54e431f156128a/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/b0041d2276b59b149ff5847e620a91cc/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/2857b2e92bff6f047a660479ed9e6d4f/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -69,17 +79,17 @@ MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/marcuseduard
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/00c747f70bb95ac1e91d66e1dd37bbad/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d8fae425df6a64afb0a72b0197fca30b/transformed/sqlite-2.4.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.datastore:datastore:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/e68cc64345c9cc2f8f3ac500a1436b33/transformed/jetified-datastore-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/0a6d97a8ecca835f7476a18c8398239a/transformed/jetified-annotation-experimental-1.3.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.5.4] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/9f1fc5351b4ef662a27b43e910a8b067/transformed/jetified-runtime-saveable-release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.runtime:runtime-android:1.5.4] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/2058722861b19e21969cdede41b12071/transformed/jetified-runtime-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/da1b35c37d78b5da01fd68369580aa48/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/84d7fefdce5cfbafff9aec8032062b6d/transformed/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:2:1-20:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/20ecee391317c999d2061e50b876fa6d/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/8a4da26cc7867a55463b22ac10b313de/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/eac425147f1f4c712c8919b1b9468a2f/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/4765b3725d3bf714f9d7e9e37a8f6b0f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/ee65c5554035ec40d8473616a35ed69c/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/20c2310565ca8f6e22684c9ff347ec4c/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/26f4872be9e0a78c25bc19d162f56a07/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/8a4da26cc7867a55463b22ac10b313de/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.dagger:dagger-lint-aar:2.48] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/458375ed6bee0ac6862e5395dd7aa9d5/transformed/jetified-dagger-lint-aar-2.48/AndroidManifest.xml:16:1-19:12
 	package
 		INJECTED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml
@@ -97,6 +107,10 @@ ADDED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.20
 		ADDED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml:6:5-79
+MERGED from [androidx.media3:media3-common:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/a7732dc4cef94727d1ebfbdc412f0fbd/transformed/jetified-media3-common-1.2.0/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-common:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/a7732dc4cef94727d1ebfbdc412f0fbd/transformed/jetified-media3-common-1.2.0/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/72338a46417b987fd3e9b2b68543f875/transformed/jetified-media3-exoplayer-1.2.0/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/72338a46417b987fd3e9b2b68543f875/transformed/jetified-media3-exoplayer-1.2.0/AndroidManifest.xml:22:5-79
 	android:name
 		ADDED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml:6:22-76
 application
@@ -168,6 +182,26 @@ uses-sdk
 INJECTED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/marcuseduardosena/Documents/Developer/Personal/app.fiap.gs2.2025/android/app/src/main/AndroidManifest.xml
+MERGED from [androidx.media3:media3-ui:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/9687e81c3d53b6ee0e03acfc8e90479e/transformed/jetified-media3-ui-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-ui:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/9687e81c3d53b6ee0e03acfc8e90479e/transformed/jetified-media3-ui-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/ecc2267407295d5241ed058f51a0cc79/transformed/jetified-media3-extractor-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/ecc2267407295d5241ed058f51a0cc79/transformed/jetified-media3-extractor-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/e336a6f6f03e5d714a852782754ff789/transformed/jetified-media3-container-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/e336a6f6f03e5d714a852782754ff789/transformed/jetified-media3-container-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/762baa3bd6d8ecd19f956818a8adde71/transformed/jetified-media3-datasource-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/762baa3bd6d8ecd19f956818a8adde71/transformed/jetified-media3-datasource-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/7507536fc4e395448980648604b382e7/transformed/jetified-media3-decoder-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/7507536fc4e395448980648604b382e7/transformed/jetified-media3-decoder-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/44a9ab631c1fea2788b26d28e3758345/transformed/jetified-media3-database-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/44a9ab631c1fea2788b26d28e3758345/transformed/jetified-media3-database-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/a7732dc4cef94727d1ebfbdc412f0fbd/transformed/jetified-media3-common-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/a7732dc4cef94727d1ebfbdc412f0fbd/transformed/jetified-media3-common-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/72338a46417b987fd3e9b2b68543f875/transformed/jetified-media3-exoplayer-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/72338a46417b987fd3e9b2b68543f875/transformed/jetified-media3-exoplayer-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.6.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/644852430baae208014fb9dfa2e83371/transformed/media-1.6.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.6.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/644852430baae208014fb9dfa2e83371/transformed/media-1.6.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.3.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/dabdd6882fe09a5024ae26390a887dbb/transformed/recyclerview-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/dabdd6882fe09a5024ae26390a887dbb/transformed/recyclerview-1.3.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.hilt:hilt-navigation-compose:1.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/b05b51230b5dd1b637fe5b7ad1cb5bed/transformed/jetified-hilt-navigation-compose-1.1.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.hilt:hilt-navigation-compose:1.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/b05b51230b5dd1b637fe5b7ad1cb5bed/transformed/jetified-hilt-navigation-compose-1.1.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.hilt:hilt-navigation:1.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/436482889c9e5d3b7084385303a636f7/transformed/jetified-hilt-navigation-1.1.0/AndroidManifest.xml:5:5-44
@@ -270,10 +304,10 @@ MERGED from [androidx.compose.ui:ui-android:1.5.4] /Users/marcuseduardosena/.gra
 MERGED from [androidx.compose.ui:ui-android:1.5.4] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/e68368d1cb6ee81fb1321830b743bbe2/transformed/jetified-ui-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d1f43673d68e6dbdf53591b1172d984c/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d1f43673d68e6dbdf53591b1172d984c/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.autofill:autofill:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d225fc8ab7256add9c8d28abe77b7711/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.autofill:autofill:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d225fc8ab7256add9c8d28abe77b7711/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.customview:customview:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/5fbefa5f0c93297bc4cd1741ce3518f0/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/5fbefa5f0c93297bc4cd1741ce3518f0/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d225fc8ab7256add9c8d28abe77b7711/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d225fc8ab7256add9c8d28abe77b7711/transformed/jetified-autofill-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/45f94f702943cd2b5d54e431f156128a/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/45f94f702943cd2b5d54e431f156128a/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/b0041d2276b59b149ff5847e620a91cc/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
@@ -298,16 +332,18 @@ MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/marcuseduardosena/.gradle/cach
 MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/d8fae425df6a64afb0a72b0197fca30b/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.datastore:datastore:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/e68cc64345c9cc2f8f3ac500a1436b33/transformed/jetified-datastore-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.datastore:datastore:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/e68cc64345c9cc2f8f3ac500a1436b33/transformed/jetified-datastore-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.3.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/0a6d97a8ecca835f7476a18c8398239a/transformed/jetified-annotation-experimental-1.3.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/0a6d97a8ecca835f7476a18c8398239a/transformed/jetified-annotation-experimental-1.3.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.5.4] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/9f1fc5351b4ef662a27b43e910a8b067/transformed/jetified-runtime-saveable-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.5.4] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/9f1fc5351b4ef662a27b43e910a8b067/transformed/jetified-runtime-saveable-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-android:1.5.4] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/2058722861b19e21969cdede41b12071/transformed/jetified-runtime-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-android:1.5.4] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/2058722861b19e21969cdede41b12071/transformed/jetified-runtime-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/da1b35c37d78b5da01fd68369580aa48/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/da1b35c37d78b5da01fd68369580aa48/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/84d7fefdce5cfbafff9aec8032062b6d/transformed/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
 MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/84d7fefdce5cfbafff9aec8032062b6d/transformed/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/20ecee391317c999d2061e50b876fa6d/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/20ecee391317c999d2061e50b876fa6d/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/8a4da26cc7867a55463b22ac10b313de/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/8a4da26cc7867a55463b22ac10b313de/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/eac425147f1f4c712c8919b1b9468a2f/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/eac425147f1f4c712c8919b1b9468a2f/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/4765b3725d3bf714f9d7e9e37a8f6b0f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
@@ -318,8 +354,6 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/marcuseduardosena/.g
 MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/20c2310565ca8f6e22684c9ff347ec4c/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/26f4872be9e0a78c25bc19d162f56a07/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/26f4872be9e0a78c25bc19d162f56a07/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/8a4da26cc7867a55463b22ac10b313de/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/8a4da26cc7867a55463b22ac10b313de/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.dagger:dagger-lint-aar:2.48] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/458375ed6bee0ac6862e5395dd7aa9d5/transformed/jetified-dagger-lint-aar-2.48/AndroidManifest.xml:18:3-42
 MERGED from [com.google.dagger:dagger-lint-aar:2.48] /Users/marcuseduardosena/.gradle/caches/8.13/transforms/458375ed6bee0ac6862e5395dd7aa9d5/transformed/jetified-dagger-lint-aar-2.48/AndroidManifest.xml:18:3-42
 	android:targetSdkVersion
