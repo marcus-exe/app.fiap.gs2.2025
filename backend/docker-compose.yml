@@ -40,6 +40,25 @@ services:
       - app-network
     restart: unless-stopped
 
+  iot-simulator:
+    build:
+      context: ./iot-simulator
+      dockerfile: Dockerfile
+    container_name: techknowledgepills-iot-simulator
+    environment:
+      - API_BASE_URL=http://api:8080
+      - USER_ID=${IOT_USER_ID:-1}
+      - DEVICE_ID=${IOT_DEVICE_ID:-fitness-tracker-001}
+      - DEVICE_TYPE=${IOT_DEVICE_TYPE:-fitness_tracker}
+      - INTERVAL_SECONDS=${IOT_INTERVAL_SECONDS:-300}
+      - SIMULATE_STRESS=${IOT_SIMULATE_STRESS:-false}
+    depends_on:
+      api:
+        condition: service_started
+    networks:
+      - app-network
+    restart: unless-stopped
+
 volumes:
   postgres_data:
     driver: local

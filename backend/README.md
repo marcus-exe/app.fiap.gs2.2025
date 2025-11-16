@@ -119,12 +119,36 @@ backend/
 ├── TechKnowledgePills.API/          # Main API project
 ├── TechKnowledgePills.Core/         # Domain models and interfaces
 ├── TechKnowledgePills.Infrastructure/  # Data access and services
+├── iot-simulator/                   # IoT health data simulator container
 ├── Dockerfile                        # API container definition
 ├── docker-compose.yml               # Service orchestration
 ├── docker-compose.override.yml      # Local development overrides
 ├── .dockerignore                    # Docker ignore patterns
 └── Makefile                         # Convenience commands
 ```
+
+## IoT Health Data Integration
+
+The backend includes an IoT simulator that feeds health data (heart rate, steps, sleep, etc.) into the system. This data is automatically analyzed and converted to stress indicators.
+
+**Services:**
+- `api` - Main backend API
+- `db` - PostgreSQL database
+- `iot-simulator` - Python-based IoT device simulator
+
+**View IoT simulator logs:**
+```bash
+docker-compose logs -f iot-simulator
+```
+
+**Configure IoT simulator:**
+Set environment variables in `docker-compose.yml`:
+- `IOT_USER_ID` - User ID to associate data with (default: 1)
+- `IOT_DEVICE_ID` - Device identifier
+- `IOT_INTERVAL_SECONDS` - Data submission interval (default: 300 seconds)
+- `IOT_SIMULATE_STRESS` - Enable stress simulation (default: false)
+
+For detailed documentation, see [IOT_INTEGRATION.md](./IOT_INTEGRATION.md) and [iot-simulator/README.md](./iot-simulator/README.md).
 
 ## API Endpoints
 
@@ -147,6 +171,11 @@ Once running, access Swagger UI at: http://localhost:5000/swagger
 - `GET /api/stressindicator/latest` - Get latest stress indicator
 - `POST /api/stressindicator/generate-mock` - Generate mock data
 - `POST /api/stressindicator` - Create stress indicator
+
+### Health Metrics (IoT)
+- `POST /api/healthmetric/iot` - Submit health data from IoT devices (public)
+- `GET /api/healthmetric` - Get all health metrics (authenticated)
+- `GET /api/healthmetric/latest` - Get latest health metric (authenticated)
 
 ### Recommendations
 - `GET /api/recommendation` - Get personalized recommendations

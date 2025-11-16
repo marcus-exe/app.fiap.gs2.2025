@@ -17,7 +17,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
-    private const val BASE_URL = "http://10.0.2.2:5001/" // Android emulator localhost
+    // For Android Emulator, use: "http://10.0.2.2:5001/"
+    // For Physical Device, use your machine's IP: "http://192.168.0.137:5001/"
+    private const val BASE_URL = "http://192.168.0.137:5001/" // Physical device - update with your machine's IP
 
     @Provides
     @Singleton
@@ -50,6 +52,9 @@ object RetrofitModule {
         }
 
         return OkHttpClient.Builder()
+            .connectTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
+            .readTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
+            .writeTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor)
             .addInterceptor(authInterceptor)
             .build()

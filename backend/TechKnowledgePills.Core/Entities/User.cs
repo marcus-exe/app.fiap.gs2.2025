@@ -11,5 +11,6 @@ public class User
     // Navigation properties
     public ICollection<StressIndicator> StressIndicators { get; set; } = new List<StressIndicator>();
     public ICollection<UserContentInteraction> UserContentInteractions { get; set; } = new List<UserContentInteraction>();
+    public ICollection<HealthMetric> HealthMetrics { get; set; } = new List<HealthMetric>();
 }
 

@@ -81,9 +81,11 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(
                 "http://localhost:8080",
-                "http://10.0.2.2:5001",
+                "http://10.0.2.2:5001",  // Android emulator
                 "http://localhost:5001",
-                "http://127.0.0.1:5001"
+                "http://127.0.0.1:5001",
+                "http://192.168.0.137:5001",  // Physical device - update with your machine's IP
+                "http://192.168.31.119:5001"  // Device IP - update if needed
               )
               .AllowAnyHeader()
               .AllowAnyMethod()
@@ -95,6 +97,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IContentRepository, ContentRepository>();
 builder.Services.AddScoped<IStressIndicatorRepository, StressIndicatorRepository>();
+builder.Services.AddScoped<IHealthMetricRepository, HealthMetricRepository>();
+builder.Services.AddScoped<IHealthAnalysisService, HealthAnalysisService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IRecommendationService, RecommendationService>();
 

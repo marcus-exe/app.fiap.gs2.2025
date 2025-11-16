@@ -14,6 +14,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Content> Contents { get; set; }
     public DbSet<StressIndicator> StressIndicators { get; set; }
     public DbSet<UserContentInteraction> UserContentInteractions { get; set; }
+    public DbSet<HealthMetric> HealthMetrics { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -54,6 +55,17 @@ public class ApplicationDbContext : DbContext
                 .WithMany(c => c.UserContentInteractions)
                 .HasForeignKey(e => e.ContentId)
                 .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<HealthMetric>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasOne(e => e.User)
+                .WithMany(u => u.HealthMetrics)
+                .HasForeignKey(e => e.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            entity.HasIndex(e => e.DeviceId);
+            entity.HasIndex(e => new { e.UserId, e.Timestamp });
         });
     }
 }
