@@ -1,3 +1,4 @@
+using System.Threading;
 using TechKnowledgePills.Tests.Support;
 using TechTalk.SpecFlow;
 
@@ -7,19 +8,20 @@ namespace TechKnowledgePills.Tests.Support;
 public class TestDependencies
 {
     private static TestWebApplicationFactory? _factory;
-    private static TestContext? _context;
+    private static readonly AsyncLocal<TestContext?> _context = new();
 
     [BeforeTestRun]
     public static void BeforeTestRun()
     {
         _factory = new TestWebApplicationFactory();
-        _context = new TestContext();
+        _context.Value = new TestContext();
     }
 
     [AfterTestRun]
     public static void AfterTestRun()
     {
         _factory?.Dispose();
+        _context.Value = null;
     }
 
     public static TestWebApplicationFactory GetFactory()
@@ -29,7 +31,19 @@ public class TestDependencies
 
     public static TestContext GetContext()
     {
-        return _context ??= new TestContext();
+        return _context.Value ??= new TestContext();
+    }
+
+    public static TestContext CreateContext()
+    {
+        var context = new TestContext();
+        _context.Value = context;
+        return context;
+    }
+
+    public static void ClearContext()
+    {
+        _context.Value = null;
     }
 }
 

@@ -22,7 +22,7 @@ public class CommonSteps
     [Given(@"the API is available")]
     public void GivenTheApiIsAvailable()
     {
-        _context.Client = _factory.CreateClient();
+        _context.SetClient(_factory.CreateClient());
     }
 
     [Given(@"I am authenticated as a user")]

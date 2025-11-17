@@ -18,7 +18,7 @@ public class StressIndicatorSteps
         _context = TestDependencies.GetContext();
     }
 
-    [Given(@"I want to record a stress level of ""(.*)""")]
+    [Given(@"I want to record a stress level of ""([^""]+)""$")]
     public void GivenIWantToRecordAStressLevelOf(string stressLevel)
     {
         var level = Enum.Parse<StressLevel>(stressLevel);
@@ -29,7 +29,7 @@ public class StressIndicatorSteps
         };
     }
 
-    [Given(@"I want to record a stress level of ""(.*)"" with notes ""(.*)""")]
+    [Given(@"I want to record a stress level of ""([^""]+)"" with notes ""([^""]+)""$")]
     public void GivenIWantToRecordAStressLevelOfWithNotes(string stressLevel, string notes)
     {
         var level = Enum.Parse<StressLevel>(stressLevel);
@@ -73,7 +73,7 @@ public class StressIndicatorSteps
         }
     }
 
-    [When(@"I create a stress indicator with level ""(.*)""")]
+    [When(@"I create a stress indicator with level ""([^""]+)""$")]
     public async Task WhenICreateAStressIndicatorWithLevel(string stressLevel)
     {
         var level = Enum.Parse<StressLevel>(stressLevel);
@@ -83,10 +83,10 @@ public class StressIndicatorSteps
             Timestamp = DateTime.UtcNow
         };
 
-        _context.Response = await _context.Client!.PostAsJsonAsync("/api/stressindicator", indicator);
+        _context.SetResponse(await _context.Client!.PostAsJsonAsync("/api/stressindicator", indicator));
     }
 
-    [When(@"I create a stress indicator with level ""(.*)"" and notes ""(.*)""")]
+    [When(@"I create a stress indicator with level ""([^""]+)"" and notes ""([^""]+)""$")]
     public async Task WhenICreateAStressIndicatorWithLevelAndNotes(string stressLevel, string notes)
     {
         var level = Enum.Parse<StressLevel>(stressLevel);
@@ -97,25 +97,25 @@ public class StressIndicatorSteps
             Notes = notes
         };
 
-        _context.Response = await _context.Client!.PostAsJsonAsync("/api/stressindicator", indicator);
+        _context.SetResponse(await _context.Client!.PostAsJsonAsync("/api/stressindicator", indicator));
     }
 
     [When(@"I request all my stress indicators")]
     public async Task WhenIRequestAllMyStressIndicators()
     {
-        _context.Response = await _context.Client!.GetAsync("/api/stressindicator");
+        _context.SetResponse(await _context.Client!.GetAsync("/api/stressindicator"));
     }
 
     [When(@"I request my latest stress indicator")]
     public async Task WhenIRequestMyLatestStressIndicator()
     {
-        _context.Response = await _context.Client!.GetAsync("/api/stressindicator/latest");
+        _context.SetResponse(await _context.Client!.GetAsync("/api/stressindicator/latest"));
     }
 
     [When(@"I try to retrieve my stress indicators")]
     public async Task WhenITryToRetrieveMyStressIndicators()
     {
-        _context.Response = await _context.Client!.GetAsync("/api/stressindicator");
+        _context.SetResponse(await _context.Client!.GetAsync("/api/stressindicator"));
     }
 
     [Then(@"the stress indicator creation should be successful")]
@@ -127,7 +127,7 @@ public class StressIndicatorSteps
     [Then(@"the response should contain the created stress indicator")]
     public async Task ThenTheResponseShouldContainTheCreatedStressIndicator()
     {
-        var indicator = await _context.Response!.Content.ReadFromJsonAsync<StressIndicatorDto>();
+        var indicator = await _context.GetResponseJsonAsync<StressIndicatorDto>();
         indicator.Should().NotBeNull();
         _context.CreatedStressIndicatorId = indicator!.Id;
     }
@@ -136,21 +136,21 @@ public class StressIndicatorSteps
     public async Task ThenTheStressLevelShouldBe(string stressLevel)
     {
         var level = Enum.Parse<StressLevel>(stressLevel);
-        var indicator = await _context.Response!.Content.ReadFromJsonAsync<StressIndicatorDto>();
+        var indicator = await _context.GetResponseJsonAsync<StressIndicatorDto>();
         indicator!.StressLevel.Should().Be(level);
     }
 
     [Then(@"the stress indicator should have a timestamp")]
     public async Task ThenTheStressIndicatorShouldHaveATimestamp()
     {
-        var indicator = await _context.Response!.Content.ReadFromJsonAsync<StressIndicatorDto>();
+        var indicator = await _context.GetResponseJsonAsync<StressIndicatorDto>();
         indicator!.Timestamp.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromMinutes(1));
     }
 
     [Then(@"I should receive a list of stress indicators")]
     public async Task ThenIShouldReceiveAListOfStressIndicators()
     {
-        var indicators = await _context.Response!.Content.ReadFromJsonAsync<List<StressIndicatorDto>>();
+        var indicators = await _context.GetResponseJsonAsync<List<StressIndicatorDto>>();
         indicators.Should().NotBeNull();
         indicators!.Count.Should().BeGreaterThan(0);
     }
@@ -158,21 +158,21 @@ public class StressIndicatorSteps
     [Then(@"all stress indicators should belong to my user account")]
     public async Task ThenAllStressIndicatorsShouldBelongToMyUserAccount()
     {
-        var indicators = await _context.Response!.Content.ReadFromJsonAsync<List<StressIndicatorDto>>();
+        var indicators = await _context.GetResponseJsonAsync<List<StressIndicatorDto>>();
         indicators!.All(i => i.UserId == _context.CreatedUserId).Should().BeTrue();
     }
 
     [Then(@"I should receive the most recent stress indicator")]
     public async Task ThenIShouldReceiveTheMostRecentStressIndicator()
     {
-        var indicator = await _context.Response!.Content.ReadFromJsonAsync<StressIndicatorDto>();
+        var indicator = await _context.GetResponseJsonAsync<StressIndicatorDto>();
         indicator.Should().NotBeNull();
     }
 
     [Then(@"the stress indicator should have the latest timestamp")]
     public async Task ThenTheStressIndicatorShouldHaveTheLatestTimestamp()
     {
-        var latestIndicator = await _context.Response!.Content.ReadFromJsonAsync<StressIndicatorDto>();
+        var latestIndicator = await _context.GetResponseJsonAsync<StressIndicatorDto>();
         
         // Get all indicators to verify this is the latest
         var allResponse = await _context.Client!.GetAsync("/api/stressindicator");
@@ -185,7 +185,7 @@ public class StressIndicatorSteps
     [Then(@"the notes should be ""(.*)""")]
     public async Task ThenTheNotesShouldBe(string notes)
     {
-        var indicator = await _context.Response!.Content.ReadFromJsonAsync<StressIndicatorDto>();
+        var indicator = await _context.GetResponseJsonAsync<StressIndicatorDto>();
         indicator!.Notes.Should().Be(notes);
     }
 }

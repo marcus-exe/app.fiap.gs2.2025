@@ -91,32 +91,32 @@ public class ContentManagementSteps
     [When(@"I request all content")]
     public async Task WhenIRequestAllContent()
     {
-        _context.Response = await _context.Client!.GetAsync("/api/content");
+        _context.SetResponse(await _context.Client!.GetAsync("/api/content"));
     }
 
     [When(@"I request content with ID (\d+)")]
     public async Task WhenIRequestContentWithId(int id)
     {
-        _context.Response = await _context.Client!.GetAsync($"/api/content/{id}");
+        _context.SetResponse(await _context.Client!.GetAsync($"/api/content/{id}"));
     }
 
     [When(@"I request content of type ""(.*)""")]
     public async Task WhenIRequestContentOfType(string type)
     {
         var contentType = Enum.Parse<ContentType>(type);
-        _context.Response = await _context.Client!.GetAsync($"/api/content/type/{contentType}");
+        _context.SetResponse(await _context.Client!.GetAsync($"/api/content/type/{contentType}"));
     }
 
     [When(@"I create the content")]
     public async Task WhenICreateTheContent()
     {
-        _context.Response = await _context.Client!.PostAsJsonAsync("/api/content", _context.ContentDto);
+        _context.SetResponse(await _context.Client!.PostAsJsonAsync("/api/content", _context.ContentDto!));
     }
 
     [When(@"I try to retrieve all content")]
     public async Task WhenITryToRetrieveAllContent()
     {
-        _context.Response = await _context.Client!.GetAsync("/api/content");
+        _context.SetResponse(await _context.Client!.GetAsync("/api/content"));
     }
 
     [Then(@"the response should be successful")]
@@ -128,7 +128,7 @@ public class ContentManagementSteps
     [Then(@"I should receive a list of content items")]
     public async Task ThenIShouldReceiveAListOfContentItems()
     {
-        var contents = await _context.Response!.Content.ReadFromJsonAsync<List<ContentDto>>();
+        var contents = await _context.GetResponseJsonAsync<List<ContentDto>>();
         contents.Should().NotBeNull();
         contents!.Count.Should().BeGreaterThan(0);
     }
@@ -136,7 +136,7 @@ public class ContentManagementSteps
     [Then(@"each content item should have an ID, title, and type")]
     public async Task ThenEachContentItemShouldHaveAnIdTitleAndType()
     {
-        var contents = await _context.Response!.Content.ReadFromJsonAsync<List<ContentDto>>();
+        var contents = await _context.GetResponseJsonAsync<List<ContentDto>>();
         foreach (var content in contents!)
         {
             content.Id.Should().BeGreaterThan(0);
@@ -148,21 +148,21 @@ public class ContentManagementSteps
     [Then(@"the content should have ID (\d+)")]
     public async Task ThenTheContentShouldHaveId(int id)
     {
-        var content = await _context.Response!.Content.ReadFromJsonAsync<ContentDto>();
+        var content = await _context.GetResponseJsonAsync<ContentDto>();
         content!.Id.Should().Be(id);
     }
 
     [Then(@"the content should have a title")]
     public async Task ThenTheContentShouldHaveATitle()
     {
-        var content = await _context.Response!.Content.ReadFromJsonAsync<ContentDto>();
+        var content = await _context.GetResponseJsonAsync<ContentDto>();
         content!.Title.Should().NotBeNullOrEmpty();
     }
 
     [Then(@"the content should have a type")]
     public async Task ThenTheContentShouldHaveAType()
     {
-        var content = await _context.Response!.Content.ReadFromJsonAsync<ContentDto>();
+        var content = await _context.GetResponseJsonAsync<ContentDto>();
         content!.Type.Should().BeDefined();
     }
 
@@ -170,7 +170,7 @@ public class ContentManagementSteps
     public async Task ThenAllReturnedContentShouldBeOfType(string type)
     {
         var contentType = Enum.Parse<ContentType>(type);
-        var contents = await _context.Response!.Content.ReadFromJsonAsync<List<ContentDto>>();
+        var contents = await _context.GetResponseJsonAsync<List<ContentDto>>();
         contents!.All(c => c.Type == contentType).Should().BeTrue();
     }
 
@@ -183,7 +183,7 @@ public class ContentManagementSteps
     [Then(@"the response should contain the created content")]
     public async Task ThenTheResponseShouldContainTheCreatedContent()
     {
-        var content = await _context.Response!.Content.ReadFromJsonAsync<ContentDto>();
+        var content = await _context.GetResponseJsonAsync<ContentDto>();
         content.Should().NotBeNull();
         _context.CreatedContentId = content!.Id;
     }
@@ -191,14 +191,14 @@ public class ContentManagementSteps
     [Then(@"the created content should have the title ""(.*)""")]
     public async Task ThenTheCreatedContentShouldHaveTheTitle(string title)
     {
-        var content = await _context.Response!.Content.ReadFromJsonAsync<ContentDto>();
+        var content = await _context.GetResponseJsonAsync<ContentDto>();
         content!.Title.Should().Be(title);
     }
 
     [Then(@"the created content should have an ID")]
     public async Task ThenTheCreatedContentShouldHaveAnId()
     {
-        var content = await _context.Response!.Content.ReadFromJsonAsync<ContentDto>();
+        var content = await _context.GetResponseJsonAsync<ContentDto>();
         content!.Id.Should().BeGreaterThan(0);
         _context.CreatedContentId = content.Id;
     }
@@ -206,7 +206,7 @@ public class ContentManagementSteps
     [Then(@"the created content should have the video URL ""(.*)""")]
     public async Task ThenTheCreatedContentShouldHaveTheVideoUrl(string videoUrl)
     {
-        var content = await _context.Response!.Content.ReadFromJsonAsync<ContentDto>();
+        var content = await _context.GetResponseJsonAsync<ContentDto>();
         content!.VideoUrl.Should().Be(videoUrl);
     }
 

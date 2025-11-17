@@ -62,7 +62,7 @@ public class UserRegistrationSteps
     [When(@"I register with these credentials")]
     public async Task WhenIRegisterWithTheseCredentials()
     {
-        _context.Response = await _context.Client!.PostAsJsonAsync("/api/auth/register", _context.RegisterRequest);
+        _context.SetResponse(await _context.Client!.PostAsJsonAsync("/api/auth/register", _context.RegisterRequest!));
     }
 
     [When(@"I try to register again with email ""(.*)"" and password ""(.*)""")]
@@ -74,7 +74,7 @@ public class UserRegistrationSteps
             Password = password
         };
 
-        _context.Response = await _context.Client!.PostAsJsonAsync("/api/auth/register", registerRequest);
+        _context.SetResponse(await _context.Client!.PostAsJsonAsync("/api/auth/register", registerRequest));
     }
 
     [Then(@"the registration should be successful")]
@@ -86,7 +86,7 @@ public class UserRegistrationSteps
     [Then(@"I should receive a JWT token")]
     public async Task ThenIShouldReceiveAJwtToken()
     {
-        var authResponse = await _context.Response!.Content.ReadFromJsonAsync<AuthResponse>();
+        var authResponse = await _context.GetResponseJsonAsync<AuthResponse>();
         authResponse.Should().NotBeNull();
         authResponse!.Token.Should().NotBeNullOrEmpty();
         _context.AuthResponse = authResponse;
@@ -95,7 +95,7 @@ public class UserRegistrationSteps
     [Then(@"the response should contain my user ID")]
     public async Task ThenTheResponseShouldContainMyUserId()
     {
-        var authResponse = await _context.Response!.Content.ReadFromJsonAsync<AuthResponse>();
+        var authResponse = await _context.GetResponseJsonAsync<AuthResponse>();
         authResponse!.UserId.Should().BeGreaterThan(0);
         _context.CreatedUserId = authResponse.UserId;
     }
@@ -103,7 +103,7 @@ public class UserRegistrationSteps
     [Then(@"the response should contain my email ""(.*)""")]
     public async Task ThenTheResponseShouldContainMyEmail(string email)
     {
-        var authResponse = await _context.Response!.Content.ReadFromJsonAsync<AuthResponse>();
+        var authResponse = await _context.GetResponseJsonAsync<AuthResponse>();
         authResponse!.Email.Should().Be(email);
     }
 
@@ -116,24 +116,26 @@ public class UserRegistrationSteps
     [Then(@"the error message should indicate the email is already registered")]
     public async Task ThenTheErrorMessageShouldIndicateTheEmailIsAlreadyRegistered()
     {
-        var content = await _context.Response!.Content.ReadAsStringAsync();
-        content.Should().Contain("already registered", StringComparison.OrdinalIgnoreCase);
+        var content = await _context.GetResponseBodyAsync();
+        content.ToLowerInvariant().Should().Contain("already registered");
     }
 
     [Then(@"the error message should indicate invalid email format")]
     public async Task ThenTheErrorMessageShouldIndicateInvalidEmailFormat()
     {
-        var content = await _context.Response!.Content.ReadAsStringAsync();
+        var content = await _context.GetResponseBodyAsync();
         // ModelState validation errors
-        content.Should().ContainAny(new[] { "Email", "email", "Invalid" }, StringComparison.OrdinalIgnoreCase);
+        var normalizedContent = content.ToLowerInvariant();
+        normalizedContent.Should().ContainAny(new[] { "email", "invalid" });
     }
 
     [Then(@"the error message should indicate password validation failure")]
     public async Task ThenTheErrorMessageShouldIndicatePasswordValidationFailure()
     {
-        var content = await _context.Response!.Content.ReadAsStringAsync();
+        var content = await _context.GetResponseBodyAsync();
         // ModelState validation errors
-        content.Should().ContainAny(new[] { "Password", "password", "length" }, StringComparison.OrdinalIgnoreCase);
+        var normalizedContent = content.ToLowerInvariant();
+        normalizedContent.Should().ContainAny(new[] { "password", "length" });
     }
 }
 

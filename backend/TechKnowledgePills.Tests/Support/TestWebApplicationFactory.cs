@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql;
+using NpgsqlTypes;
+using System.Data;
+using System.Threading;
 using TechKnowledgePills.Infrastructure.Data;
 
 namespace TechKnowledgePills.Tests.Support;
@@ -65,37 +69,99 @@ public class TestWebApplicationFactory : WebApplicationFactory<Program>
                 });
             }
 
-            // Build the service provider
-            var sp = services.BuildServiceProvider();
-
-            // Create a scope to obtain a reference to the database context
-            using (var scope = sp.CreateScope())
-            {
-                var scopedServices = scope.ServiceProvider;
-                var db = scopedServices.GetRequiredService<ApplicationDbContext>();
-
-                // Ensure the database is created and migrations are applied
-                try
-                {
-                    db.Database.EnsureDeleted(); // Clean up any existing test data
-                    db.Database.EnsureCreated();
-                }
-                catch (Exception ex)
-                {
-                    // If using Docker, wait a bit and retry
-                    if (useDocker)
-                    {
-                        System.Threading.Thread.Sleep(2000);
-                        db.Database.EnsureDeleted();
-                        db.Database.EnsureCreated();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-            }
+            EnsureDatabaseReady(services, useDocker);
         });
+    }
+
+    private static void EnsureDatabaseReady(IServiceCollection services, bool useDocker)
+    {
+        using var scope = services.BuildServiceProvider().CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+        void RecreateDatabase()
+        {
+            // Always use EnsureCreated for tests - faster and avoids migration conflicts
+            db.Database.EnsureCreated();
+        }
+
+        try
+        {
+            if (useDocker)
+            {
+                ForceDropDatabase(TestConnectionString);
+            }
+            else
+            {
+                TryEnsureDeleted(db);
+            }
+
+            RecreateDatabase();
+        }
+        catch
+        {
+            if (!useDocker)
+            {
+                throw;
+            }
+
+            // If Postgres container is still initializing, wait briefly and retry once
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+
+            if (useDocker)
+            {
+                ForceDropDatabase(TestConnectionString);
+            }
+            else
+            {
+                TryEnsureDeleted(db);
+            }
+
+            RecreateDatabase();
+        }
+    }
+
+    private static void TryEnsureDeleted(ApplicationDbContext db)
+    {
+        try
+        {
+            db.Database.EnsureDeleted();
+        }
+        catch (PostgresException ex) when (ex.SqlState == "3D000")
+        {
+            // Database did not exist yet – safe to ignore
+        }
+        catch (InvalidOperationException ex) when (ex.InnerException is PostgresException { SqlState: "3D000" })
+        {
+            // Same as above but wrapped by EF
+        }
+    }
+
+    private static void ForceDropDatabase(string connectionString)
+    {
+        var builder = new NpgsqlConnectionStringBuilder(connectionString);
+        var databaseName = builder.Database;
+
+        builder.Database = "postgres";
+        builder.Pooling = false;
+
+        using var connection = new NpgsqlConnection(builder.ConnectionString);
+        connection.Open();
+
+        using (var terminateCmd = connection.CreateCommand())
+        {
+            terminateCmd.CommandText = @"
+                SELECT pg_terminate_backend(pid)
+                FROM pg_stat_activity
+                WHERE datname = @dbName AND pid <> pg_backend_pid();";
+            terminateCmd.Parameters.Add(new NpgsqlParameter("@dbName", NpgsqlTypes.NpgsqlDbType.Varchar) { Value = databaseName });
+            terminateCmd.ExecuteNonQuery();
+        }
+
+        using (var dropCmd = connection.CreateCommand())
+        {
+            dropCmd.CommandText = $"DROP DATABASE IF EXISTS \"{databaseName}\" WITH (FORCE);";
+            dropCmd.ExecuteNonQuery();
+        }
     }
 
     protected override void Dispose(bool disposing)

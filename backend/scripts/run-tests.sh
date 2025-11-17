@@ -44,7 +44,7 @@ echo "🧪 Running BDD tests..."
 echo ""
 
 if command -v dotnet > /dev/null 2>&1; then
-    dotnet test TechKnowledgePills.Tests/TechKnowledgePills.Tests.csproj --verbosity normal
+    dotnet test TechKnowledgePills.Tests/TechKnowledgePills.Tests.csproj --verbosity minimal
     test_exit_code=$?
 else
     echo "❌ dotnet CLI not found. Please install .NET SDK 8.0"

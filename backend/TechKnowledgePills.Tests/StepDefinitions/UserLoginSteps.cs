@@ -52,7 +52,7 @@ public class UserLoginSteps
             Password = password
         };
 
-        _context.Response = await _context.Client!.PostAsJsonAsync("/api/auth/login", loginRequest);
+        _context.SetResponse(await _context.Client!.PostAsJsonAsync("/api/auth/login", loginRequest));
     }
 
     [When(@"I try to login without providing an email")]
@@ -64,7 +64,7 @@ public class UserLoginSteps
             Password = _context.LoginRequest?.Password ?? "Password123"
         };
 
-        _context.Response = await _context.Client!.PostAsJsonAsync("/api/auth/login", loginRequest);
+        _context.SetResponse(await _context.Client!.PostAsJsonAsync("/api/auth/login", loginRequest));
     }
 
     [Then(@"the login should be successful")]
@@ -82,15 +82,17 @@ public class UserLoginSteps
     [Then(@"the error message should indicate invalid credentials")]
     public async Task ThenTheErrorMessageShouldIndicateInvalidCredentials()
     {
-        var content = await _context.Response!.Content.ReadAsStringAsync();
-        content.Should().ContainAny(new[] { "Invalid", "invalid", "Unauthorized" }, StringComparison.OrdinalIgnoreCase);
+        var content = await _context.GetResponseBodyAsync();
+        var normalizedContent = content.ToLowerInvariant();
+        normalizedContent.Should().ContainAny(new[] { "invalid", "unauthorized" });
     }
 
     [Then(@"the error message should indicate email is required")]
     public async Task ThenTheErrorMessageShouldIndicateEmailIsRequired()
     {
-        var content = await _context.Response!.Content.ReadAsStringAsync();
-        content.Should().ContainAny(new[] { "Email", "email", "Required" }, StringComparison.OrdinalIgnoreCase);
+        var content = await _context.GetResponseBodyAsync();
+        var normalizedContent = content.ToLowerInvariant();
+        normalizedContent.Should().ContainAny(new[] { "email", "required" });
     }
 }
 

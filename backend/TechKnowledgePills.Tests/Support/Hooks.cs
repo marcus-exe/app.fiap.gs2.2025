@@ -6,18 +6,20 @@ namespace TechKnowledgePills.Tests.Support;
 [Binding]
 public class Hooks
 {
-    private readonly TestContext _context;
+    private TestContext? _context;
+    private readonly TestWebApplicationFactory _factory;
 
     public Hooks()
     {
-        _context = TestDependencies.GetContext();
+        _factory = TestDependencies.GetFactory();
     }
 
     [BeforeScenario]
     public void BeforeScenario()
     {
+        _context = TestDependencies.CreateContext();
+
         // Reset context for each scenario
-        _context.Response = null;
         _context.AuthResponse = null;
         _context.AuthToken = null;
         _context.RegisterRequest = null;
@@ -29,14 +31,17 @@ public class Hooks
         _context.CreatedStressIndicatorId = null;
 
         // Create a new client for each scenario
-        _context.Client = _factory.CreateClient();
+        _context.SetClient(_factory.CreateClient());
     }
 
     [AfterScenario]
     public void AfterScenario()
     {
-        // Cleanup if needed
-        _context.Client?.Dispose();
+        if (_context != null)
+        {
+            _context.Client?.Dispose();
+            TestDependencies.ClearContext();
+        }
     }
 }
 

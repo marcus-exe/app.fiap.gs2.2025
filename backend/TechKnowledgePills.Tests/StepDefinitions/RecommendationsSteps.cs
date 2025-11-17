@@ -60,19 +60,19 @@ public class RecommendationsSteps
     [When(@"I request recommendations")]
     public async Task WhenIRequestRecommendations()
     {
-        _context.Response = await _context.Client!.GetAsync("/api/recommendation");
+        _context.SetResponse(await _context.Client!.GetAsync("/api/recommendation"));
     }
 
     [When(@"I try to retrieve recommendations")]
     public async Task WhenITryToRetrieveRecommendations()
     {
-        _context.Response = await _context.Client!.GetAsync("/api/recommendation");
+        _context.SetResponse(await _context.Client!.GetAsync("/api/recommendation"));
     }
 
     [Then(@"I should receive a list of recommended content")]
     public async Task ThenIShouldReceiveAListOfRecommendedContent()
     {
-        var recommendations = await _context.Response!.Content.ReadFromJsonAsync<List<ContentDto>>();
+        var recommendations = await _context.GetResponseJsonAsync<List<ContentDto>>();
         recommendations.Should().NotBeNull();
         recommendations!.Count.Should().BeGreaterThan(0);
     }
@@ -80,7 +80,7 @@ public class RecommendationsSteps
     [Then(@"the recommendations should be personalized based on my stress level")]
     public async Task ThenTheRecommendationsShouldBePersonalizedBasedOnMyStressLevel()
     {
-        var recommendations = await _context.Response!.Content.ReadFromJsonAsync<List<ContentDto>>();
+        var recommendations = await _context.GetResponseJsonAsync<List<ContentDto>>();
         recommendations.Should().NotBeNull();
         // The actual recommendation logic is tested by the service
         // Here we just verify we get recommendations
@@ -90,7 +90,7 @@ public class RecommendationsSteps
     [Then(@"I should receive default recommendations")]
     public async Task ThenIShouldReceiveDefaultRecommendations()
     {
-        var recommendations = await _context.Response!.Content.ReadFromJsonAsync<List<ContentDto>>();
+        var recommendations = await _context.GetResponseJsonAsync<List<ContentDto>>();
         recommendations.Should().NotBeNull();
         // Default recommendations should still return content
         recommendations!.Count.Should().BeGreaterThanOrEqualTo(0);
@@ -107,7 +107,7 @@ public class RecommendationsSteps
     [Then(@"the recommendations should be appropriate for low stress level")]
     public async Task ThenTheRecommendationsShouldBeAppropriateForLowStressLevel()
     {
-        var recommendations = await _context.Response!.Content.ReadFromJsonAsync<List<ContentDto>>();
+        var recommendations = await _context.GetResponseJsonAsync<List<ContentDto>>();
         recommendations.Should().NotBeNull();
         // The actual filtering logic is in the RecommendationService
         // Here we verify we get recommendations
