@@ -85,8 +85,39 @@ builder.Services.AddCors(options =>
                 "http://localhost:5001",
                 "http://127.0.0.1:5001",
                 "http://192.168.0.137:5001",  // Physical device - update with your machine's IP
-                "http://192.168.31.119:5001"  // Device IP - update if needed
+                "http://192.168.31.119:5001",  // Device IP - update if needed
+                "http://192.168.15.115:5001",  // Current machine IP (primary network)
+                "http://192.168.139.3:5001",   // Alternative machine IP
+                "http://192.168.147.0:5001",   // Alternative machine IP
+                "http://192.168.107.0:5001"    // Alternative machine IP
               )
+              .SetIsOriginAllowed(origin => 
+              {
+                  // Allow any local network IP (192.168.x.x, 10.x.x.x, 172.16-31.x.x)
+                  var uri = new Uri(origin);
+                  var host = uri.Host;
+                  return host.StartsWith("192.168.") || 
+                         host.StartsWith("10.") || 
+                         host.StartsWith("172.16.") || 
+                         host.StartsWith("172.17.") || 
+                         host.StartsWith("172.18.") || 
+                         host.StartsWith("172.19.") || 
+                         host.StartsWith("172.20.") || 
+                         host.StartsWith("172.21.") || 
+                         host.StartsWith("172.22.") || 
+                         host.StartsWith("172.23.") || 
+                         host.StartsWith("172.24.") || 
+                         host.StartsWith("172.25.") || 
+                         host.StartsWith("172.26.") || 
+                         host.StartsWith("172.27.") || 
+                         host.StartsWith("172.28.") || 
+                         host.StartsWith("172.29.") || 
+                         host.StartsWith("172.30.") || 
+                         host.StartsWith("172.31.") ||
+                         host == "localhost" ||
+                         host == "127.0.0.1" ||
+                         host == "10.0.2.2";
+              })
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();

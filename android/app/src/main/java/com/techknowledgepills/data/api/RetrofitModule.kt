@@ -18,8 +18,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
     // For Android Emulator, use: "http://10.0.2.2:5001/"
-    // For Physical Device, use your machine's IP: "http://192.168.0.137:5001/"
-    private const val BASE_URL = "http://192.168.0.137:5001/" // Physical device - update with your machine's IP
+    // For Physical Device, use your machine's IP: "http://192.168.15.115:5001/"
+    // If connection fails, try: "http://192.168.139.3:5001/" or check your machine's IP with: ifconfig
+    private const val BASE_URL = "http://192.168.15.115:5001/" // Physical device - update with your machine's IP
 
     @Provides
     @Singleton
