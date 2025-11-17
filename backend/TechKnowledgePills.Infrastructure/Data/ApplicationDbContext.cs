@@ -15,6 +15,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<StressIndicator> StressIndicators { get; set; }
     public DbSet<UserContentInteraction> UserContentInteractions { get; set; }
     public DbSet<HealthMetric> HealthMetrics { get; set; }
+    public DbSet<Cipher> Ciphers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -66,6 +67,20 @@ public class ApplicationDbContext : DbContext
                 .OnDelete(DeleteBehavior.Cascade);
             entity.HasIndex(e => e.DeviceId);
             entity.HasIndex(e => new { e.UserId, e.Timestamp });
+        });
+
+        modelBuilder.Entity<Cipher>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasOne(e => e.User)
+                .WithMany(u => u.Ciphers)
+                .HasForeignKey(e => e.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            entity.Property(e => e.KeyName).IsRequired().HasMaxLength(255);
+            entity.Property(e => e.EncryptedData).IsRequired();
+            entity.Property(e => e.Algorithm).IsRequired().HasMaxLength(50);
+            entity.HasIndex(e => new { e.UserId, e.KeyName });
+            entity.HasIndex(e => e.UserId);
         });
     }
 }

@@ -98,6 +98,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IContentRepository, ContentRepository>();
 builder.Services.AddScoped<IStressIndicatorRepository, StressIndicatorRepository>();
 builder.Services.AddScoped<IHealthMetricRepository, HealthMetricRepository>();
+builder.Services.AddScoped<ICipherRepository, CipherRepository>();
 builder.Services.AddScoped<IHealthAnalysisService, HealthAnalysisService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IRecommendationService, RecommendationService>();
